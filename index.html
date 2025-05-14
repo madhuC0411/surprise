@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Bandar!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+    }
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      width: 700px;
+      height: 500px;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeInUp 2s ease;
+      z-index: 10;
+    }
+    h1 {
+      color: #ff4d6d;
+      font-size: 2.5rem;
+      animation: pop 1.5s ease;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #444;
+      margin: 15px 0;
+    }
+    .funny {
+      color: #ff9900;
+      font-style: italic;
+    }
+    .emotional {
+      color: #3f51b5;
+    }
+    .love {
+      color: #e91e63;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .confetti {
+      position: fixed;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      background-color: hsl(var(--hue), 100%, 70%);
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+    .cake-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .cake {
+      margin-top: 20px;
+      display: none;
+    }
+    .cake img {
+      width: 200px;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 50px;
+      height: 70px;
+      background-image: url('https://i.imgur.com/8TDRsRY.png');
+      background-size: cover;
+      animation: floatUp 10s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+    .border-image {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      z-index: 1;
+    }
+    .top-left { top: 0px; left: 0px; }
+    .top-right { top: 0px; right: 0px; }
+    .bottom-left { bottom: 0px; left: 0px; }
+    .bottom-right { bottom: 0px; right: 0px; }
+  </style>
+</head>
+<body>
+  <!-- Floating Balloons -->
+  <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="balloon" style="left: 30%; animation-delay: 2s;"></div>
+  <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
+  <div class="balloon" style="left: 70%; animation-delay: 1s;"></div>
+  <div class="balloon" style="left: 90%; animation-delay: 3s;"></div>
+
+  <!-- Border Images -->
+  <img src="https://i.pinimg.com/originals/8a/2e/22/8a2e22ee850f5b6ce80223c3dda78273.gif" class="border-image top-left">
+  <img src="https://i.pinimg.com/originals/7c/e6/e2/7ce6e22cf76570bd034d7680b34f8c9a.gif" class="border-image top-right">
+  <img src="https://i.pinimg.com/originals/ba/de/72/bade726b83ee9062759186a5a131356f.gif" class="border-image bottom-left">
+  <img src="https://i.kym-cdn.com/photos/images/newsfeed/002/915/426/136.gif" class="border-image bottom-right">
+
+  <div class="card">
+    <h1>Happy Birthday, Bandar Abhishek!</h1>
+    <p class="love">Tu door hai, lekin dil ke Google Drive mein tu permanently saved hai.</p>
+    <p class="love">Happy Birthday, meri jaan.</p>
+    <img src="https://i.pinimg.com/originals/f5/e0/a5/f5e0a5e748b2dc73bdec6ba0aca0a083.gif" alt="Cute Moment" style="width: 150px;height: 150px; margin-top: 20px; border-radius: 10px;">
+    <p class="footer">— From your favorite dimaag ki dushman, Chipkali</p>
+    <a href="click.html"><button class="cake-button">Click Me!</button></a>
+  </div>
+
+  <script>
+    const createConfetti = () => {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.setProperty('--hue', Math.floor(Math.random() * 360));
+      document.body.appendChild(confetti);
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+      setTimeout(() => {
+        confetti.remove();
+      }, 5000);
+    }
+    for (let i = 0; i < 50; i++) {
+      setTimeout(createConfetti, i * 200);
+    }
+  </script>
+</body>
+</html>

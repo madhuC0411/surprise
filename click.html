@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bandar 20 Ka Ho Gaya!</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffeef2;
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -40px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://media3.giphy.com/media/3CCXHZWV6F6O9VQ7FL/200w.gif?cid=6c09b952frfrmbolhei7sndnjdfb85hoaq7m2mvb1y9v5s1r&ep=v1_gifs_search&rid=200w.gif&ct=g');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: floatHeart 8s linear infinite;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .cake-img {
+      width: 450px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .cake-img:hover {
+      transform: scale(1.05);
+    }
+
+    #blastText {
+      margin-top: 20px;
+      font-size: 2rem;
+      color: #ff4081;
+      font-weight: bold;
+      display: none;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts" id="hearts-container"></div>
+
+  <div class="center">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/9193d483500913.5d3ecfc94f929.gif" class="cake-img" onclick="blast()" id="cake"><br>
+    <p>Ek bar click to kar ! <br>Cake pe Gadhe</p>
+    <div id="blastText">🎉 Bandar 20 Ka Ho Gaya! 🎉</div>
+  </div>
+
+  <script>
+    // Generate flying hearts
+    const container = document.getElementById('hearts-container');
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      container.appendChild(heart);
+    }
+
+    function blast() {
+      const cake = document.getElementById('cake');
+      cake.src = 'https://mir-s3-cdn-cf.behance.net/project_modules/hd/9193d483500913.5d3ecfc94f929.gif';
+      const text = document.getElementById('blastText');
+      text.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
